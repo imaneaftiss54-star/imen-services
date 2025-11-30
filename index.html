@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Services Digitaux — CV • Lettre • Design</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Services digitaux: CV design, lettre de motivation, covers Instagram, logos, flyers, bannières.">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#7c3aed;
+      --glass: rgba(255,255,255,0.04);
+      --radius:12px;
+      --maxwidth:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,var(--bg), #071026 120%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:60px;
+    }
+    .container{max-width:var(--maxwidth);margin:0 auto;padding:28px}
+    header{
+      position:sticky;top:0;z-index:40;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(180deg, rgba(7,10,20,0.6), rgba(7,10,20,0.2));
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:10px 18px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#4f46e5);
+      display:grid;place-items:center;font-weight:700;color:white;font-size:18px;
+    }
+    .navlinks{display:flex;gap:14px;align-items:center}
+    .navlinks a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
+    .cta{background:var(--accent);padding:8px 12px;border-radius:10px;color:white;text-decoration:none;font-weight:600}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr;gap:20px;padding:36px 0;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:16px;border:1px solid rgba(255,255,255,0.03)}
+    .hero h1{margin:0;font-size:26px}
+    .hero p{color:var(--muted);margin-top:8px}
+    .services-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px}
+    .service{
+      background:var(--glass);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:center;
+    }
+    .svc-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#0b1220, rgba(255,255,255,0.02));display:grid;place-items:center;font-weight:700}
+    .svc-title{font-weight:700}
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px}
+    .price-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .price-row{display:flex;justify-content:space-between;align-items:center}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:var(--muted);cursor:pointer}
+    .btn-primary{background:var(--accent);color:white;border:none}
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+    .thumb{background:linear-gradient(180deg,#071026, #061226);height:140px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600}
+    /* Contact */
+    .contact{display:grid;gap:12px;margin-top:18px}
+    form{display:grid;gap:10px}
+    input,textarea,select{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:10px;color:inherit;font-size:14px;
+    }
+    label{font-size:13px;color:var(--muted)}
+    footer{text-align:center;color:var(--muted);margin-top:28px;font-size:13px}
+    /* responsive */
+    @media(min-width:720px){
+      .hero{grid-template-columns: 1fr 420px}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .pricing{grid-template-columns:repeat(3,1fr)}
+      .gallery{grid-template-columns:repeat(4,1fr)}
+    }
+    /* mobile menu */
+    .menu-toggle{display:none}
+    @media(max-width:720px){
+      .navlinks{display:none}
+      .menu-toggle{display:block;background:transparent;border:none;color:var(--muted);font-weight:700}
+    }
+    /* modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:90}
+    .modal{background:linear-gradient(180deg,#071028,#061025);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);width:100%;max-width:520px}
+    .modal .row{display:flex;gap:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="logo">SD</div>
+          <div>
+            <div style="font-weight:700">Services Digitaux</div>
+            <div style="font-size:12px;color:var(--muted)">CV • Lettre • Design</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="navlinks" role="navigation" aria-label="navigation">
+            <a href="#services">Services</a>
+            <a href="#pricing">Tarifs</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <button class="menu-toggle" aria-label="menu" id="menuToggle">Menu</button>
+          <a class="cta" href="#contact">Commander</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-card">
+        <h1>Services digitaux simples pour étudiants & créateurs</h1>
+        <p>Je propose : <strong>CV pro</strong>, <strong>lettres de motivation</strong>, <strong>Instagram highlight covers</strong>, <strong>logos</strong>, <strong>flyers</strong> et <strong>bannières TikTok/YouTube</strong>. Commande rapide, livraison digitale.</p>
+
+        <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+          <button class="btn btn-primary" data-service="CV design">Commander CV</button>
+          <button class="btn" data-service="Pack réseaux">Voir portfolio</button>
+          <button class="btn" id="openOrder" data-service="Lettre de motivation">Commande rapide</button>
+        </div>
+
+        <div class="services-grid" style="margin-top:18px">
+          <div class="service">
+            <div class="svc-icon">CV</div>
+            <div>
+              <div class="svc-title">CV design</div>
+              <div style="color:var(--muted);font-size:13px">Mise en page PDF pro, version A4 + version web</div>
+            </div>
+          </div>
+
+          <div class="service">
+            <div class="svc-icon">LM</div>
+            <div>
+              <div class="svc-title">Lettre de motivation</div>
+              <div style="color:var(--muted);font-size:13px">Texte personnalisé pour poste/concours</div>
+            </div>
+          </div>
+
+          <div class="service">
+            <div class="svc-icon">IG</div>
+            <div>
+              <div class="svc-title">Instagram highlight covers</div>
+              <div style="color:var(--muted);font-size:13px">Pack 5 covers adaptés au feed</div>
+            </div>
+          </div>
+
+          <div class="service">
+            <div class="svc-icon">Logo</div>
+            <div>
+              <div class="svc-title">Logo simple</div>
+              <div style="color:var(--muted);font-size:13px">Logo vecteur + fichiers PNG</div>
+            </div>
+          </div>
+
+          <div class="service">
+            <div class="svc-icon">Fly</div>
+            <div>
+              <div class="svc-title">Flyers simples</div>
+              <div style="color:var(--muted);font-size:13px">Recto/verso, prêt à imprimer</div>
+            </div>
+          </div>
+
+          <div class="service">
+            <div class="svc-icon">Ban</div>
+            <div>
+              <div class="svc-title">Bannière TikTok / YouTube</div>
+              <div style="color:var(--muted);font-size:13px">Adaptée aux dimensions officielles</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside style="padding:10px">
+        <div style="background:linear-gradient(180deg,#061227,#071233);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+          <h3 style="margin:0">Tarif indicatif</h3>
+          <p style="color:var(--muted);margin-top:8px">Prix simples, adaptés aux étudiants — possibilité de pack.</p>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px">
+            <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>CV design</span><strong>80 DH</strong></div>
+            <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>Lettre</span><strong>40 DH</strong></div>
+            <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>Pack covers (5)</span><strong>60 DH</strong></div>
+            <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>Logo simple</span><strong>100 DH</strong></div>
+            <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>Flyer</span><strong>80 DH</strong></div>
+            <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>Bannière</span><strong>70 DH</strong></div>
+          </div>
+          <div style="margin-top:12px"><button class="btn btn-primary" id="contactBtn">Commander maintenant</button></div>
+        </div>
+
+        <div style="margin-top:12px;color:var(--muted);font-size:13px">
+          <div style="font-weight:700">Livraison</div>
+          <div>Fichiers numériques (PDF, PNG, SVG). Révisions : 2 incluses.</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <h2 style="margin-top:18px">Tarifs et packs</h2>
+      <div class="pricing" aria-label="Plans">
+        <div class="price-card">
+          <h3>Pack étudiant</h3>
+          <p style="color:var(--muted)">CV + lettre</p>
+          <div style="margin-top:8px" class="price-row">
+            <strong>110 DH</strong>
+            <button class="btn btn-primary order-btn" data-service="Pack étudiant (CV + lettre)">Commander</button>
+          </div>
+        </div>
+
+        <div class="price-card">
+          <h3>Pack réseaux</h3>
+          <p style="color:var(--muted)">5 covers + bannière</p>
+          <div style="margin-top:8px" class="price-row">
+            <strong>120 DH</strong>
+            <button class="btn btn-primary order-btn" data-service="Pack réseaux (covers + bannière)">Commander</button>
+          </div>
+        </div>
+
+        <div class="price-card">
+          <h3>Logo + flyer</h3>
+          <p style="color:var(--muted)">Logo simple + flyer recto</p>
+          <div style="margin-top:8px" class="price-row">
+            <strong>160 DH</strong>
+            <button class="btn btn-primary order-btn" data-service="Logo + flyer">Commander</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <h2 style="margin-top:18px">Portfolio (exemples)</h2>
+      <div class="gallery" role="list">
+        <div class="thumb">Exemple 1</div>
+        <div class="thumb">Exemple 2</div>
+        <div class="thumb">Exemple 3</div>
+        <div class="thumb">Exemple 4</div>
+        <div class="thumb">Exemple 5</div>
+        <div class="thumb">Exemple 6</div>
+        <div class="thumb">Exemple 7</div>
+        <div class="thumb">Exemple 8</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 style="margin-top:18px">Contact & Commande</h2>
+      <p style="color:var(--muted)">Remplis le formulaire ou clique sur commander pour ouvrir ton client mail automatiquement.</p>
+
+      <div class="contact" style="grid-template-columns:1fr;">
+        <form id="orderForm" data-email="ton.email@example.com">
+          <label for="name">Nom / Prénom</label>
+          <input id="name" name="name" placeholder="Ex: Fatima" required>
+
+          <label for="email">Ton e-mail</label>
+          <input id="email" name="email" type="email" placeholder="exemple@mail.com" required>
+
+          <label for="service">Service demandé</label>
+          <select id="service" name="service" required>
+            <option>CV design</option>
+            <option>Lettre de motivation</option>
+            <option>Instagram highlight covers</option>
+            <option>Logo simple</option>
+            <option>Flyer simple</option>
+            <option>Bannière TikTok / YouTube</option>
+            <option>Pack étudiant (CV + lettre)</option>
+          </select>
+
+          <label for="details">Détails / Informations (poste, texte, liens...)</label>
+          <textarea id="details" name="details" rows="4" placeholder="Donne des détails: poste visé, texte à mettre, couleurs préférées..."></textarea>
+
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button type="button" class="btn btn-primary" id="sendMail">Envoyer par mail</button>
+            <button type="reset" class="btn">Réinitialiser</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Services Digitaux — Créé par Imen</div>
+    </footer>
+  </main>
+
+  <!-- Modal commande -->
+  <div class="modal-backdrop" id="modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 id="modalTitle">Commande rapide</h3>
+        <button class="btn" id="closeModal">Fermer</button>
+      </div>
+      <p style="color:var(--muted)">Remplis vite pour envoyer la demande.</p>
+      <form id="modalForm" style="display:grid;gap:8px;margin-top:8px">
+        <input id="m_name" placeholder="Ton nom" required>
+        <input id="m_email" placeholder="Ton email" required>
+        <select id="m_service">
+          <option>CV design</option>
+          <option>Lettre de motivation</option>
+          <option>Instagram highlight covers</option>
+          <option>Logo simple</option>
+          <option>Flyer simple</option>
+          <option>Bannière TikTok / YouTube</option>
+        </select>
+        <textarea id="m_details" rows="3" placeholder="Détails"></textarea>
+        <div style="display:flex;gap:8px;justify-content:flex-end">
+          <button type="button" class="btn" id="m_cancel">Annuler</button>
+          <button type="button" class="btn btn-primary" id="m_send">Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Small interactions
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle (simple)
+    const menuToggle = document.getElementById('menuToggle');
+    menuToggle?.addEventListener('click', () => {
+      const nav = document.querySelector('.navlinks');
+      if (nav.style.display === 'flex') nav.style.display = '';
+      else nav.style.display = 'flex';
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}) }
+      });
+    });
+
+    // Open modal
+    const modal = document.getElementById('modal');
+    const openOrder = document.getElementById('openOrder');
+    const closeModal = document.getElementById('closeModal');
+    const m_cancel = document.getElementById('m_cancel');
+
+    openOrder?.addEventListener('click', ()=>{ modal.style.display='flex' });
+    closeModal?.addEventListener('click', ()=>{ modal.style.display='none' });
+    m_cancel?.addEventListener('click', ()=>{ modal.style.display='none' });
+
+    // Pre-fill modal when order buttons clicked
+    document.querySelectorAll('.order-btn, .btn[data-service]').forEach(btn=>{
+      btn.addEventListener('click', ()=> {
+        const svc = btn.dataset.service || btn.getAttribute('data-service') || '';
+        document.getElementById('m_service').value = svc;
+        modal.style.display='flex';
+      });
+    });
+
+    // Build mailto from form
+    function sendMailFrom(fields){
+      // email to receive requests - edit here or set data-email on #orderForm
+      const receiver = document.getElementById('orderForm').dataset.email || 'ton.email@example.com';
+      const subject = encodeURIComponent('Nouvelle commande: ' + fields.service);
+      let body = `Nom: ${fields.name}%0AEmail: ${fields.email}%0AService: ${fields.service}%0ADétails: ${fields.details}`;
+      // open mail client
+      window.location.href = `mailto:${receiver}?subject=${subject}&body=${body}`;
+    }
+
+    document.getElementById('sendMail').addEventListener('click', ()=>{
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').value;
+      const details = document.getElementById('details').value.trim() || '—';
+      if(!name || !email){ alert('Remplis ton nom et email.'); return; }
+      sendMailFrom({name,email,service,details});
+    });
+
+    document.getElementById('m_send').addEventListener('click', ()=>{
+      const name = document.getElementById('m_name').value.trim();
+      const email = document.getElementById('m_email').value.trim();
+      const service = document.getElementById('m_service').value;
+      const details = document.getElementById('m_details').value.trim() || '—';
+      if(!name || !email){ alert('Remplis ton nom et email.'); return; }
+      modal.style.display='none';
+      sendMailFrom({name,email,service,details});
+    });
+
+    // Close modal on backdrop click
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) modal.style.display='none' });
+
+    // Example: update data-email to your real email via JS if needed:
+    // document.getElementById('orderForm').dataset.email = 'moi@exemple.com';
+  </script>
+</body>
+</html>
